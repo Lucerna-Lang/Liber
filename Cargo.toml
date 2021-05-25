@@ -1,0 +1,9 @@
+[package]
+name = "liber"
+version = "0.4.0"
+authors = ["Kyando_2 <amehikoji@gmail.com>"]
+edition = "2018"
+
+
+[dependencies]
+structures = {path = "../../lucerna_structures"}
