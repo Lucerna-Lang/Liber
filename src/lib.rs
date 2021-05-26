@@ -1,10 +1,10 @@
 mod math;
 mod string;
 
-use structures::structs::{Env, DefaultTypes, Function, Table};
-use std::rc::Rc;
 pub use math::load as load_math;
+use std::rc::Rc;
 pub use string::load as load_string;
+use structures::structs::{DefaultTypes, Env, Function, Table};
 
 pub struct Lib {
     n: &'static str,
@@ -13,10 +13,7 @@ pub struct Lib {
 
 impl Lib {
     pub fn new(n: &'static str) -> Self {
-        Self {
-            n,
-            f: vec!()
-        }
+        Self { n, f: vec![] }
     }
     pub fn add(&mut self, name: &'static str, s: Function) {
         self.f.push((name, s));
@@ -28,7 +25,6 @@ impl Lib {
         }
         e.add_variable(self.n, DefaultTypes::Table(temp_t));
     }
-
 }
 
 trait AsFuncObj {
@@ -36,7 +32,9 @@ trait AsFuncObj {
 }
 
 impl<T> AsFuncObj for T
-where T: Fn(&mut Env, Vec<DefaultTypes>) -> Vec<DefaultTypes> {
+where
+    T: Fn(&mut Env, Vec<DefaultTypes>) -> Vec<DefaultTypes>,
+{
     fn as_obj(&'static self) -> Function {
         Function::new(Rc::new(self))
     }
