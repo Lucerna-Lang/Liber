@@ -1,7 +1,7 @@
 //! Library for functions that create or modify strings
 //! Currently: toString,
 
-use crate::{Lib, AsFuncObj};
+use crate::{AsFuncObj, Lib};
 use structures::structs::{DefaultTypes, Env};
 
 pub fn to_string(_: &mut Env, mut v: Vec<DefaultTypes>) -> Vec<DefaultTypes> {
