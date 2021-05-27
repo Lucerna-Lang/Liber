@@ -1,6 +1,6 @@
 [package]
 name = "liber"
-version = "0.4.1"
+version = "0.5.1"
 authors = ["Kyando_2 <amehikoji@gmail.com>"]
 edition = "2018"
 
