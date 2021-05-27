@@ -23,7 +23,7 @@ pub fn wait(e: &mut Env, mut v: Vec<DefaultTypes>) -> Vec<DefaultTypes> {
 }
 
 pub fn load() -> Lib {
-    let mut s = Lib::new("strings");
+    let mut s = Lib::new("thread");
     s.add("wait", wait.as_obj());
     s
 }
