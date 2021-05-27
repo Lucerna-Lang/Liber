@@ -1,9 +1,11 @@
 mod math;
 mod string;
+mod thread;
 
 pub use math::load as load_math;
 use std::rc::Rc;
 pub use string::load as load_string;
+pub use thread::load as load_thread;
 use structures::structs::{DefaultTypes, Env, Function, Table};
 
 pub struct Lib {
@@ -43,4 +45,5 @@ where
 pub fn loader(e: &mut Env) {
     load_math().load(e);
     load_string().load(e);
+    load_thread().load(e);
 }
