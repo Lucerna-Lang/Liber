@@ -6,4 +6,4 @@ edition = "2018"
 
 
 [dependencies.structures]
-git = "https://github.com/Kyando2/Structures"
+git = "https://github.com/Lucerna-Lang/Structures"
