@@ -15,15 +15,18 @@ pub fn to_string(_: &mut Env, mut v: Vec<DefaultTypes>) -> Vec<DefaultTypes> {
     }
 }
 
-pub fn index_string(_: &mut Env, mut v: Vec<DefaultTypes>) -> Vec<DefaultTypes> {
-    let t = v.remove(0);
-    let t1 = v.remove(0);
-    match (t, t1) {
-        (DefaultTypes::Str(s), DefaultTypes::Int(i)) => {
-            vec![DefaultTypes::Str(s[i as usize..i as usize].to_string())]
+pub fn index_string(_: &mut Env, mut values: Vec<DefaultTypes>) -> Vec<DefaultTypes> {
+    let original_string_type = values.remove(0);
+    let index_type = values.remove(0);
+    dbg!("Called index string");
+    match (original_string_type, index_type) {
+        (DefaultTypes::Str(original_string), DefaultTypes::Int(index)) => {
+            let indexed_char = original_string.chars().nth(index as usize).unwrap();
+            dbg!(&indexed_char);
+            vec![DefaultTypes::Str(indexed_char.to_string())]
         },
         _ => {
-            v
+            values
         }
     }
 }

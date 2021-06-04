@@ -1,9 +1,9 @@
 [package]
 name = "liber"
-version = "0.5.1"
+version = "0.5.2"
 authors = ["Kyando_2 <amehikoji@gmail.com>"]
 edition = "2018"
 
 
 [dependencies.structures]
-git = "https://github.com/Lucerna-Lang/Structures"
+git = "https://github.com/Kyando2/Structures"
