@@ -1,5 +1,5 @@
 //! Library for functions that only work with numbers
-//! Currently: multiply, larger, abs, neg
+//! Currently: multiply, larger, abs, neg (Division is not implemented, because decimals aren't)
 
 use crate::{AsFuncObj, Lib};
 use structures::structs::{DefaultTypes, Env};
