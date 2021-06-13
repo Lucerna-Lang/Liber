@@ -10,15 +10,13 @@ pub fn wait(e: &mut Env, mut v: Vec<DefaultTypes>) -> Vec<DefaultTypes> {
     let t = v.remove(0);
     if let DefaultTypes::Int(s) = t {
         if s<0 {
-            panic!("Wait did not get a positive number of milliseconds");
+            e.exit("Attempting to wait a negative amount of seconds", e.cline())
         }
         let dur = Duration::from_millis(s as u64);
         sleep(dur);
         v
     } else {
-        println!("Wait did not get a number of milliseconds");
-        e.exit();
-        v
+        e.exit("Wait did not get a number of milliseconds", e.cline());
     }
 }
 
