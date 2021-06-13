@@ -4,18 +4,20 @@
 use crate::{AsFuncObj, Lib};
 use structures::structs::{DefaultTypes, Env};
 
-pub fn multiply(_: &mut Env, mut v: Vec<DefaultTypes>) -> Vec<DefaultTypes> {
+pub fn multiply(e: &mut Env, mut v: Vec<DefaultTypes>) -> Vec<DefaultTypes> {
     let int1 = v.remove(0);
     let int2 = v.remove(0);
     match (int1, int2) {
         (DefaultTypes::Int(i1), DefaultTypes::Int(i2)) => {
             vec![DefaultTypes::Int(i1 * i2)]
         }
-        (_, _) => v,
+        (_, _) =>  {
+            e.exit("Attempting to multiply non numeric types", e.cline());
+        }
     }
 }
 
-pub fn larger(_: &mut Env, mut v: Vec<DefaultTypes>) -> Vec<DefaultTypes> {
+pub fn larger(e: &mut Env, mut v: Vec<DefaultTypes>) -> Vec<DefaultTypes> {
     let int1 = v.remove(0);
     let int2 = v.remove(0);
     match (int1, int2) {
@@ -23,8 +25,7 @@ pub fn larger(_: &mut Env, mut v: Vec<DefaultTypes>) -> Vec<DefaultTypes> {
             vec![DefaultTypes::Bool(i1 > i2)]
         }
         (_, _) => {
-            println!("Attempting to call eq on different types");
-            v
+            e.exit("Attempting to multiply non numeric types", e.cline());
         }
     }
 }
